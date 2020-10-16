@@ -56,14 +56,19 @@ $(function () {
 $.ajax({
     dataType: "json",
     url: "/cmds.json",
-  }).done(function (resp) {
+}).done(function (resp) {
     for (var p in resp) {
-      if (!resp.hasOwnProperty(p)) continue;
-      var writer = resp[p].writer;
-      var command = resp[p].command;
-      cmd_wrapper.html(cmd_wrapper.html() + "<div class='cmd'>\
+        if (!resp.hasOwnProperty(p)) continue;
+        var writer = resp[p].writer;
+        var command = resp[p].command;
+        cmd_wrapper.html(cmd_wrapper.html() + "<div class='cmd'>\
         <h3>" + writer + "</h3>\
-        <p>"+ command +"</p>\
+        <p>"+ command + "</p>\
       </div>");
-      }
-  });
+    }
+});
+
+//   has class - PURE Javascript
+function hasClass(element) {
+    return (' ' + element.className + ' ').indexOf(' ' + className + ' ') > -1;
+}
