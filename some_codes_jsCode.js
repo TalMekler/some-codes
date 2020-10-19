@@ -69,6 +69,16 @@ $.ajax({
 });
 
 //   has class - PURE Javascript
-function hasClass(element) {
+function hasClass(element, className) {
     return (' ' + element.className + ' ').indexOf(' ' + className + ' ') > -1;
+}
+
+// Child by class
+function getChildByClass(parent, className){
+    var children = parent.children;
+    for (var i = 0; i < children.length; i++){
+        if (hasClass(children[i], className)){
+            return children[i];
+        }
+    }
 }
